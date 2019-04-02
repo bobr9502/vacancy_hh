@@ -1,0 +1,15 @@
+.list__vacancy .employer__salary:before
+{
+	content: ', ';
+}
+
+.employer__salary__rur:before
+{
+	content: ' (';
+}
+
+.employer__salary__rur:after
+{
+	content: ')';
+}
+

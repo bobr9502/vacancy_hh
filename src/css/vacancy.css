@@ -1,0 +1,56 @@
+.vacancy .address__street:before
+{
+	content: ', ';
+}
+
+.vacancy .vacancy__name
+{
+	font-size: 18px;
+}
+
+.vacancy .vacancy__emloyer__name
+{
+	font-size: 14px;
+	color: #099;
+}
+
+.contacts div, .vacancy .vacancy__address div
+{
+		display: inline;
+}
+
+.vacancy .vacancy__address div
+{
+	font-size: 13px;
+	line-height: 25px;
+}
+
+.vacancy .employer__salary 
+{
+	font-size: 16px;
+	line-height: 25px;
+}
+
+.contacts
+{
+	line-height: 40px;
+	color: #696969;
+	font-weight: bold;
+}
+
+.contacts
+{
+	line-height: 40px;
+	color: #696969;
+	font-weight: bold;
+}
+
+.contacts .contacts__name
+{
+	font-weight: normal;
+}
+
+.contacts .contacts__name:before
+{
+	content: " - ";
+}

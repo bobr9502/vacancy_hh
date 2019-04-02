@@ -1,0 +1,9 @@
+.ui.text.vertical.menu, .filter
+{
+	margin-top: 50px !important;
+}
+
+.ui.text.vertical.menu a.item
+{
+	padding: 12px 16px;
+}

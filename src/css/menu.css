@@ -1,0 +1,11 @@
+.ui.pointing.secondary.vertical.menu .header, .filter .item
+{
+	margin: .57142857em 0 .71428571em !important;
+	font-size: .92857143em;
+	padding: 0 0;
+	text-transform: uppercase;
+}
+
+nav {
+	min-width: 200px;
+}
