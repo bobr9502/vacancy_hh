@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import {Menu} from "semantic-ui-react";
 import "../css/menuSort.css";
 import {connect} from "react-redux";
-import Loader from "./loader-spinner";
 
 class MenuExampleVerticalText extends Component {
     state = {activeItem: this.props.currentItem, loading: true};
@@ -16,9 +15,7 @@ class MenuExampleVerticalText extends Component {
   }
 
   render() {
-      const {activeItem, loading} = this.state;
-
-      if (loading) return <Loader type="block"/>;
+      const {activeItem} = this.state;
     return (
       <Menu text vertical>
         <Menu.Item header>Сортировать</Menu.Item>
@@ -43,7 +40,7 @@ class MenuExampleVerticalText extends Component {
 }
 
 export default connect(
-    (state) => ({
+    state => ({
         currentItem: state.sortVacancy
   }),
   dispatch => ({
