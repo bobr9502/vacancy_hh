@@ -8,7 +8,7 @@ export default class MenuExampleVerticalSecondary extends Component {
     handleItemClick = (e, {name}) => this.setState({activeItem: name});
 
     componentDidMount() {
-        setTimeout(() => this.setState({loading: false}));
+        this.setState({loading: false});
   }
 
   render() {
