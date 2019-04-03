@@ -24,6 +24,7 @@ class App extends Component {
 
   render() {
     const { loading } = this.state
+      const {area, vacancy, onFilterVacancyCountry, listCurrency} = this.props
 
     if (loading)
         return ( <Loader /> )
@@ -32,10 +33,10 @@ class App extends Component {
         <nav>
           <Menu active="Главная"/>
           <MenuSort />
-          <Filter itemsArea={this.props.area} onChange={this.props.onFilterVacancyCountry}/>
+            <Filter itemsArea={area} onChange={onFilterVacancyCountry}/>
         </nav>
         <main>
-          <ListVacancy itemsVacancy={this.props.vacancy} itemsCurrency={this.props.listCurrency}/>
+            <ListVacancy itemsVacancy={vacancy} itemsCurrency={listCurrency}/>
         </main>
       </Container>
       )
@@ -58,16 +59,4 @@ function mapDispatchToProps(dispatch)
   }
 }
 
-//  dispatch => ({
- //   onGetData: (numberPage) => {
-     
- //    // dispatch(getVacancyApi(numberPage));
- //   },
-  //  onFilterVacancyCountry: (event, data) => {
-   //   dispatch({type: 'VACANCY_FILTER_COUNTRY', payload: data.value});
-  //  }
- // })
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-  //dispatch({type: 'ADD_LIST_CURRENCY', items: listCurrency});
-//dispatch({type: 'ADD_LIST_VACANCY', items: listVacancy});
-//dispatch({type: 'ADD_LIST_AREA', items: listOnlyAreaByCurrentVacancy});
