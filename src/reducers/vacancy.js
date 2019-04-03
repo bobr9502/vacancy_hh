@@ -17,28 +17,28 @@ export function getVacancy(state) {
     vacancy.area.main_parent.id.includes(selectorsFilter.getFilter(state))
   );
   switch (sortVacancy) {
-	  case "Название":
-	  	return vacancyFilterSort.sort(compareName);
-	  case "Зарплата от":
-	  	return vacancyFilterSort.sort(compareSalaryFrom);
-	  case "Зарплата до":
-	  	return vacancyFilterSort.sort(compareSalaryTo)
-	  default:
-		  return vacancyFilterSort;
+    case "Название":
+      return vacancyFilterSort.sort(compareName);
+    case "Зарплата от":
+      return vacancyFilterSort.sort(compareSalaryFrom);
+    case "Зарплата до":
+      return vacancyFilterSort.sort(compareSalaryTo);
+    default:
+      return vacancyFilterSort;
   }
 }
 
 //выдача инфы для графика
 export function CountAndSalaryVacancy(vacancy) {
   const salaryArray = vacancy
-    .filter(item => !isNaN(item.salary.from) && !isNaN(item.salary.to))
+    .filter(item => item.salary.from && item.salary.to)
     .map(function(item) {
       const from = _.get(item, "salary.from_rur", 0);
       const to = _.get(item, "salary.to_rur", 0);
       let n = 0;
       n = from > 0 ? n + 1 : n;
       n = to > 0 ? n + 1 : n;
-      const avgSalary = ((from > 0 ? from : 0) + (to > 0 ? to : 0)) / n;
+      const avgSalary = ((from || 0) + (to || 0)) / n;
       return avgSalary;
     });
 
@@ -86,9 +86,9 @@ function compareName(a, b) {
 }
 
 function compareSalaryFrom(a, b) {
-  if (a.salary === undefined || a.salary.from_rur === undefined) {
+  if (!a.salary || !a.salary.from_rur) {
     return 1;
-  } else if (b.salary === undefined || b.salary.from_rur === undefined) {
+  } else if (!b.salary || !b.salary.from_rur) {
     return -1;
   } else if (a.salary.from_rur === b.salary.from_rur) {
     return 0;
@@ -98,9 +98,9 @@ function compareSalaryFrom(a, b) {
 }
 
 function compareSalaryTo(a, b) {
-  if (a.salary === undefined || a.salary.to_rur === undefined) {
+  if (!a.salary || !a.salary.to_rur) {
     return 1;
-  } else if (b.salary === undefined || b.salary.to_rur === undefined) {
+  } else if (!b.salary || !b.salary.to_rur) {
     return -1;
   } else if (a.salary.to_rur === b.salary.to_rur) {
     return 0;
