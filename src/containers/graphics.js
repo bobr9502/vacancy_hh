@@ -1,33 +1,32 @@
-import React, { Component } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { connect } from 'react-redux';
-import { Container} from 'react-grid-system';
-import Menu from '../components/menu';
-import Filter from './filter';
-import * as dataActions from '../actions/dataAction';
-import * as vacancySelectors from '../reducers/vacancy';
-import Loader from '../components/loader-spinner'
+import React, {Component} from "react";
+import {Bar} from "react-chartjs-2";
+import {connect} from "react-redux";
+import {Container} from "react-grid-system";
+import Menu from "../components/menu";
+import Filter from "./filter";
+import * as dataActions from "../actions/dataAction";
+import * as vacancySelectors from "../reducers/vacancy";
+import Loader from "../components/loader-spinner";
 
 class Graphics extends Component {
-  state = { loading: true }
+  state = {loading: true};
 
-  constructor(props){
-    super(props)
-    if (this.props.vacancy===undefined || this.props.vacancy.length===0)
+  constructor(props) {
+    super(props);
+    if (this.props.vacancy === undefined || this.props.vacancy.length === 0)
       this.props.onGetVacancy(0);
-    }
+  }
 
-    componentDidMount()
-    {
-      this.setState({loading: false})
-    }
+  componentDidMount() {
+    this.setState({loading: false});
+  }
 
   render() {
     const options = {
-      title:{
-        display:true,
-        text: 'Распределение количества вакансий к уровню з/п',
-        fontSize: '20'
+      title: {
+        display: true,
+        text: "Распределение количества вакансий к уровню з/п",
+        fontSize: "20"
       },
       legend: {
         display: false
@@ -35,35 +34,37 @@ class Graphics extends Component {
       responsive: true
     };
     const barData = vacancySelectors.CountAndSalaryVacancy(this.props.vacancy);
-    const { loading } = this.state
+    const {loading} = this.state;
+    const {area, onFilterVacancyCountry} = this.props;
 
-    if (loading)
-      return ( <Loader /> )
+    if (loading) return <Loader/>;
     return (
-      <Container fluid className="container"> 
+        <Container fluid className="container">
         <nav>
           <Menu active={"Графики"}/>
-          <Filter itemsArea={this.props.area} onChange={this.props.onFilterVacancyCountry}/>
+          <Filter itemsArea={area} onChange={onFilterVacancyCountry}/>
         </nav>
-      <main>
-        <Bar data={barData} options={options}/>
-      </main>
+          <main>
+            <Bar data={barData} options={options}/>
+          </main>
       </Container>
-      )
+    );
   }
 }
 
 export default connect(
-  (state) => ({
+    state => ({
     area: state.area,
-    vacancy: state.vacancy.filter(vacancy => vacancy.area.main_parent.id.includes(state.filterVacancyCountry))
+      vacancy: state.vacancy.filter(vacancy =>
+          vacancy.area.main_parent.id.includes(state.filterVacancyCountry)
+      )
   }),
   dispatch => ({
-    onGetVacancy: (numberPage) => {
+    onGetVacancy: numberPage => {
       dispatch(dataActions.fetch(0));
     },
     onFilterVacancyCountry: (event, data) => {
-      dispatch({type: 'VACANCY_FILTER_COUNTRY', payload: data.value});
+      dispatch({type: "VACANCY_FILTER_COUNTRY", payload: data.value});
     }
   })
-  )(Graphics);
+)(Graphics);
