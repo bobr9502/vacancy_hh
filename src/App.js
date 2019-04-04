@@ -23,8 +23,7 @@ class App extends Component {
 
   render() {
     const { loading } = this.state
-      const {area, vacancy, onFilterVacancyCountry, listCurrency} = this.props
-
+      const {area, vacancy, listCurrency} = this.props
     if (loading)
         return ( <Loader /> )
     return (
@@ -32,7 +31,7 @@ class App extends Component {
         <nav>
           <Menu active="Главная"/>
           <MenuSort />
-            <Filter itemsArea={area} onChange={onFilterVacancyCountry}/>
+            <Filter itemsArea={area}/>
         </nav>
         <main>
             <ListVacancy itemsVacancy={vacancy} itemsCurrency={listCurrency}/>

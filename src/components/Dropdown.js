@@ -28,7 +28,12 @@ class DropdownExampleSearchSelectionTwo extends Component {
 
 DropdownExampleSearchSelectionTwo.propTypes = {
     itemsArea: PropTypes.array.isRequired,
-    onChange: PropTypes.func
+    onChange: PropTypes.func.isRequired,
+    value: PropTypes.string
 };
+
+DropdownExampleSearchSelectionTwo.propTypes = {
+
+}
 
 export default DropdownExampleSearchSelectionTwo;
