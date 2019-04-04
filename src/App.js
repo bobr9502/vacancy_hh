@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//import { getVacancyApi } from './services/vacancy.js';
 import ListVacancy from './components/ListVacancy';
 import { Container} from 'react-grid-system';
 import Menu from './components/Menu';
