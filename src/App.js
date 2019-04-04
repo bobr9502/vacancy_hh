@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 //import { getVacancyApi } from './services/vacancy.js';
-import ListVacancy from './components/listVacancy';
+import ListVacancy from './components/ListVacancy';
 import { Container} from 'react-grid-system';
-import Menu from './components/menu';
-import MenuSort from './components/menuSort';
+import Menu from './components/Menu';
+import MenuSort from './components/MenuSort';
 import Filter from './containers/filter';
-import Loader from './components/loader-spinner';
+import Loader from './components/Loader';
 import * as vacancySelectors from './reducers/vacancy';
 import * as areaSelectors from './reducers/area';
 import * as currencySelectors from './reducers/currency';

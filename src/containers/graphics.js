@@ -2,11 +2,11 @@ import React, {Component} from "react";
 import {Bar} from "react-chartjs-2";
 import {connect} from "react-redux";
 import {Container} from "react-grid-system";
-import Menu from "../components/menu";
+import Menu from "../components/Menu";
 import Filter from "./filter";
 import * as dataActions from "../actions/dataAction";
 import * as vacancySelectors from "../reducers/vacancy";
-import Loader from "../components/loader-spinner";
+import Loader from "../components/Loader";
 
 class Graphics extends Component {
   state = {loading: true};

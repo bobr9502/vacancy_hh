@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import Dropdown from "../components/dropdown";
+import Dropdown from "../components/Dropdown";
 import "../css/filter.css";
-import Loader from "../components/loader-spinner";
+import Loader from "../components/Loader";
 import {connect} from "react-redux";
 
 class Filter extends Component {

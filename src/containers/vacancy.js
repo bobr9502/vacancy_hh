@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from 'react-grid-system';
-import Menu from '../components/menu';
+import Menu from '../components/Menu';
 import '../css/vacancy.css';
 import helpers from '../helpers';
 

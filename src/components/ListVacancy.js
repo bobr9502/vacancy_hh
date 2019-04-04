@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "../css/ListVacancy.css";
 import {Link} from "react-router";
 import helpers from "../helpers.js";
-import Loader from "./loader-spinner";
+import Loader from "./Loader";
 
 class ListVacancy extends Component {
 	state = {loading: true};
