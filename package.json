@@ -21,7 +21,8 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
-    "lodash": "latest"
+    "lodash": "latest",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
