@@ -29,7 +29,7 @@ export function getVacancy(state) {
 }
 
 //выдача инфы для графика
-export function CountAndSalaryVacancy(vacancy) {
+export function countAndSalaryVacancy(vacancy) {
   const salaryArray = vacancy
     .filter(item => item.salary.from && item.salary.to)
     .map(function(item) {

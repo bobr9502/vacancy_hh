@@ -4,8 +4,8 @@ import Loader from 'react-loader-spinner';
 export default class MainLoader extends Component {
   state = { type: 'main' }
   render() {
-    var relativeBlock = {};
-    var divStyle = {
+    let relativeBlock = {};
+    let divStyle = {
       position: 'fixed',
       top: '0',
       left: '0',
@@ -21,7 +21,7 @@ export default class MainLoader extends Component {
         width: '100%',
         height: '100%',
         minHeight: '30px'
-      }
+      };
       divStyle = {
         position: 'absolute',
         top: '50%',

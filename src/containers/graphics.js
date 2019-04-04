@@ -33,7 +33,7 @@ class Graphics extends Component {
       },
       responsive: true
     };
-    const barData = vacancySelectors.CountAndSalaryVacancy(this.props.vacancy);
+    const barData = vacancySelectors.countAndSalaryVacancy(this.props.vacancy);
     const {loading} = this.state;
     const {area, onFilterVacancyCountry} = this.props;
 

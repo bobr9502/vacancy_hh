@@ -14,7 +14,7 @@ class Api
 	}
 
 	//Получить справочник валют
-	async getVacancys(perPage, numberPage)
+	async getVacancies(perPage, numberPage)
 	{
 		return await this.getData(`/vacancies?&per_page=${perPage}&page=${numberPage}`);
 	}

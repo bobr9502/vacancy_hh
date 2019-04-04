@@ -7,10 +7,10 @@ class Vacancy
 {
 	async get(numberPage, listCurrency, listArea)
 	{
-		const data = await Api.getVacancys(50, numberPage);
+		const data = await Api.getVacancies(50, numberPage);
 		const result = await Promise.all(data.items.map(async function(item) {
 		const main_parent = identifyMainParentByRegionId(_.get(item, 'area.id'), listArea); //ищем страну
-		const rurConvert = ConvertToRUR(item, listCurrency);
+		const rurConvert = convertToRUR(item, listCurrency);
 	  //console.log(main_parent);
 	  return {
 	  	id: _.get(item, 'id'),
@@ -54,7 +54,7 @@ class Vacancy
 export default new Vacancy();
 
 //конвертируем в RUR
-function ConvertToRUR(vacancyItem, listCurrency)
+function convertToRUR(vacancyItem, listCurrency)
 {
 	if (vacancyItem.salary)
 	{
@@ -72,7 +72,7 @@ function ConvertToRUR(vacancyItem, listCurrency)
 
 //поиск по дереву
 function findNode(id, currentNode) {
-	var i,
+	let i,
 	currentChild,
 	result;
 
@@ -92,7 +92,7 @@ function findNode(id, currentNode) {
 
 //поиск главное родителя (страны) по региону
 function identifyMainParentByRegionId(id, listArea){
-	for (var i = 0; i < listArea.length; i++) {
+	for (let i = 0; i < listArea.length; i++) {
 		let findNodeResult = findNode(id, listArea[i]);
 		if (findNodeResult!==false)
 			return listArea[i];
