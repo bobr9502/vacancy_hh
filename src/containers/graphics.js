@@ -4,8 +4,8 @@ import {connect} from "react-redux";
 import {Container} from "react-grid-system";
 import Menu from "../components/Menu";
 import Filter from "./filter";
-import * as dataActions from "../actions/dataAction";
-import * as vacancySelectors from "../reducers/vacancy";
+import * as DataActions from "../actions/dataAction";
+import * as VacancySelectors from "../reducers/vacancy";
 import Loader from "../components/Loader";
 
 class Graphics extends Component {
@@ -33,7 +33,7 @@ class Graphics extends Component {
       },
       responsive: true
     };
-    const barData = vacancySelectors.countAndSalaryVacancy(this.props.vacancy);
+    const barData = VacancySelectors.countAndSalaryVacancy(this.props.vacancy);
     const {loading} = this.state;
     const {area, onFilterVacancyCountry} = this.props;
 
@@ -61,7 +61,7 @@ export default connect(
   }),
   dispatch => ({
     onGetVacancy: numberPage => {
-      dispatch(dataActions.fetch(0));
+      dispatch(DataActions.fetch(0));
     },
     onFilterVacancyCountry: (event, data) => {
       dispatch({type: "VACANCY_FILTER_COUNTRY", payload: data.value});

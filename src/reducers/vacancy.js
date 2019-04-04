@@ -1,5 +1,5 @@
-import * as selectorsSort from "./sortVacancy";
-import * as selectorsFilter from "./filterVacancyCountry";
+import * as SelectorsSort from "./sortVacancy";
+import * as SelectorsFilter from "./filterVacancyCountry";
 import _ from "lodash";
 
 const initialState = [];
@@ -12,9 +12,9 @@ export default function vacancy(state = initialState, action) {
 }
 
 export function getVacancy(state) {
-  const sortVacancy = selectorsSort.getSort(state);
+  const sortVacancy = SelectorsSort.getSort(state);
   let vacancyFilterSort = state.vacancy.filter(vacancy =>
-    vacancy.area.main_parent.id.includes(selectorsFilter.getFilter(state))
+    vacancy.area.main_parent.id.includes(SelectorsFilter.getFilter(state))
   );
   switch (sortVacancy) {
     case "Название":

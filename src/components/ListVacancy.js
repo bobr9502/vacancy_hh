@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "../css/ListVacancy.css";
 import {Link} from "react-router";
-import helpers from "../helpers.js";
+import Helpers from "../helpers.js";
 import Loader from "./Loader";
 
 class ListVacancy extends Component {
@@ -19,9 +19,9 @@ class ListVacancy extends Component {
 					<Link to={`/vacancy/${item.id}`}>{item.name}</Link>
 				</div>
 				<div className="vacancy__employer">
-					{helpers.generateVacancyItem(item.employer.name, "employer__name")}
-					{helpers.generateVacancyItem(item.area.name, "employer__city")}
-					{helpers.generateSalary(item, this.props.itemsCurrency)}
+					{Helpers.generateVacancyItem(item.employer.name, "employer__name")}
+					{Helpers.generateVacancyItem(item.area.name, "employer__city")}
+					{Helpers.generateSalary(item, this.props.itemsCurrency)}
 				</div>
 			</li>
 		));

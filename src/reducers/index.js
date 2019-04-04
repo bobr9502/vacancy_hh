@@ -1,17 +1,17 @@
 import { combineReducers} from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import vacancy from './vacancy';
-import area from './area';
-import filterVacancyCountry from './filterVacancyCountry';
-import sortVacancy from './sortVacancy';
-import currency from './currency';
+import Vacancy from './vacancy';
+import Area from './area';
+import FilterVacancyCountry from './filterVacancyCountry';
+import SortVacancy from './sortVacancy';
+import Currency from './currency';
 
 export default combineReducers({
 	routing: routerReducer,
-	vacancy,
-	area,
-	currency,
-	filterVacancyCountry,
-	sortVacancy,
+	vacancy: Vacancy,
+	area: Area,
+	currency: Currency,
+	filterVacancyCountry: FilterVacancyCountry,
+	sortVacancy: SortVacancy,
 })

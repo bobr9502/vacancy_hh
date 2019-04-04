@@ -6,10 +6,10 @@ import Menu from './components/Menu';
 import MenuSort from './components/MenuSort';
 import Filter from './containers/filter';
 import Loader from './components/Loader';
-import * as vacancySelectors from './reducers/vacancy';
-import * as areaSelectors from './reducers/area';
-import * as currencySelectors from './reducers/currency';
-import * as dataActions from './actions/dataAction';
+import * as VacancySelectors from './reducers/vacancy';
+import * as AreaSelectors from './reducers/area';
+import * as CurrencySelectors from './reducers/currency';
+import * as DataActions from './actions/dataAction';
 
 class App extends Component {
   state = { loading: true }
@@ -45,16 +45,16 @@ class App extends Component {
 function mapStateToProps(state)
 {
   return {
-    vacancy: vacancySelectors.getVacancy(state), 
-    area: areaSelectors.getArea(state),
-    listCurrency: currencySelectors.getCurrency(state)
+    vacancy: VacancySelectors.getVacancy(state),
+    area: AreaSelectors.getArea(state),
+    listCurrency: CurrencySelectors.getCurrency(state)
  }
 }
 
 function mapDispatchToProps(dispatch)
 {
   return {
-    onGetData: (numberPage) => { dispatch(dataActions.fetch(0)) }
+    onGetData: (numberPage) => { dispatch(DataActions.fetch(0)) }
   }
 }
 

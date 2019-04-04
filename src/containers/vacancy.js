@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Container } from 'react-grid-system';
 import Menu from '../components/Menu';
 import '../css/vacancy.css';
-import helpers from '../helpers';
+import Helpers from '../helpers';
 
 const VacancyItem = ({ vacancy, currency }) => (
 	<Container fluid className="container"> 
@@ -12,23 +12,23 @@ const VacancyItem = ({ vacancy, currency }) => (
 		</nav>
 	<main>
 		<div className="vacancy">
-			{helpers.generateVacancyItem(vacancy.name, "vacancy__name")}
-			{helpers.generateVacancyItem(vacancy.description, "vacancy__description")}
+			{Helpers.generateVacancyItem(vacancy.name, "vacancy__name")}
+			{Helpers.generateVacancyItem(vacancy.description, "vacancy__description")}
 			<div className="vacancy__emloyer__name">
-				{(vacancy.employer) ? helpers.generateVacancyItem(vacancy.employer.name) : ""}
+				{(vacancy.employer) ? Helpers.generateVacancyItem(vacancy.employer.name) : ""}
 			</div>
-			{helpers.generateSalary(vacancy, currency)}
+			{Helpers.generateSalary(vacancy, currency)}
 			<div className="vacancy__address">
-				{(vacancy.address) ? helpers.generateVacancyItem(vacancy.address.city, "address__city") : ""}
-				{(vacancy.address) ? helpers.generateVacancyItem(vacancy.address.street, "address__street") : ""}
+				{(vacancy.address) ? Helpers.generateVacancyItem(vacancy.address.city, "address__city") : ""}
+				{(vacancy.address) ? Helpers.generateVacancyItem(vacancy.address.street, "address__street") : ""}
 			</div>
 			<div className="snippets">
-				{helpers.generateVacancyItem(vacancy.requirement, "snippets__requirement")}
-				{helpers.generateVacancyItem(vacancy.responsibility, "snippets__responsibility")}
+				{Helpers.generateVacancyItem(vacancy.requirement, "snippets__requirement")}
+				{Helpers.generateVacancyItem(vacancy.responsibility, "snippets__responsibility")}
 			</div>
 			<div className="contacts">
-				{helpers.generateVacancyItem(vacancy.contacts.email, "contacts__email")}
-				{helpers.generateVacancyItem(vacancy.contacts.name, "contacts__name")}
+				{Helpers.generateVacancyItem(vacancy.contacts.email, "contacts__email")}
+				{Helpers.generateVacancyItem(vacancy.contacts.name, "contacts__name")}
 			</div>
 	</div>
 	</main>
