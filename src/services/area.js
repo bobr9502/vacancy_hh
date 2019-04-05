@@ -7,8 +7,9 @@ class Area {
 
   getArea(vacancy) {
     const areaCountryName = vacancy
-      .map(({ area }) => area.main_parent)
+      .map(({ area: { main_parent } }) => main_parent)
       .filter(onlyUniqueForProp);
+    console.log(vacancy);
     return areaCountryName;
   }
 }
