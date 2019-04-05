@@ -16,7 +16,7 @@ class App extends Component {
 
   componentDidMount()
   {
-    if (this.props.vacancy===undefined || this.props.vacancy.length===0)
+    if (!this.props.vacancy || !this.props.vacancy.length)
       this.props.onGetData(0);
     this.setState({loading: false})
   }

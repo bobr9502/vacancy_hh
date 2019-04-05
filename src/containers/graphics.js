@@ -13,7 +13,7 @@ class Graphics extends Component {
 
   constructor(props) {
     super(props);
-    if (this.props.vacancy || this.props.vacancy.length === 0)
+    if (!this.props.vacancy || !this.props.vacancy.length)
       this.props.onGetVacancy(0);
   }
 
