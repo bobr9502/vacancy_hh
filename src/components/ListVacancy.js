@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import "../css/ListVacancy.css";
 import {Link} from "react-router";
-import Helpers from "../helpers.js";
+import Helpers from "../Helpers.js";
 import Loader from "./Loader";
 
 class ListVacancy extends Component {

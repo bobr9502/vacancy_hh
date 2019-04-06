@@ -1,4 +1,4 @@
-import Api from './services';
+import Api from './Services';
 import _ from 'lodash';
 
 class Currency

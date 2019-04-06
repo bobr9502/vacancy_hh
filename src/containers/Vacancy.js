@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Container } from 'react-grid-system';
 import Menu from '../components/Menu';
 import '../css/vacancy.css';
-import Helpers from '../helpers';
+import Helpers from '../Helpers';
 
 const VacancyItem = ({ vacancy, currency }) => (
 	<Container fluid className="container"> 

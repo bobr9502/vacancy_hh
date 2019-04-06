@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import * as selectorsCurrency from './reducers/currency'
+import * as selectorsCurrency from './reducers/Currency'
 
 const helpers = {
 	//генерация элемента с классом или без

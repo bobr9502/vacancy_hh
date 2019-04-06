@@ -1,5 +1,5 @@
-import * as SelectorsSort from "./sortVacancy";
-import * as SelectorsFilter from "./filterVacancyCountry";
+import * as SelectorsSort from "./SortVacancy";
+import * as SelectorsFilter from "./FilterVacancyCountry";
 import _ from "lodash";
 
 const initialState = [];

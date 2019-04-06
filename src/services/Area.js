@@ -1,4 +1,4 @@
-import Api from "./services";
+import Api from "./Services";
 
 class Area {
   getApi() {
@@ -9,7 +9,6 @@ class Area {
     const areaCountryName = vacancy
       .map(({ area: { main_parent } }) => main_parent)
       .filter(onlyUniqueForProp);
-    console.log(vacancy);
     return areaCountryName;
   }
 }

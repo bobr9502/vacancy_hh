@@ -3,9 +3,9 @@ import {Bar} from "react-chartjs-2";
 import {connect} from "react-redux";
 import {Container} from "react-grid-system";
 import Menu from "../components/Menu";
-import Filter from "./filter";
-import * as DataActions from "../actions/dataAction";
-import * as VacancySelectors from "../reducers/vacancy";
+import Filter from "./Filter";
+import * as DataActions from "../actions/DataAction";
+import * as VacancySelectors from "../reducers/Vacancy";
 import Loader from "../components/Loader";
 
 class Graphics extends Component {
