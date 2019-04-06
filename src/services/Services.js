@@ -1,32 +1,28 @@
+import axios from "axios";
 const ENDPOINT = "https://api.hh.ru";
 
 class Api {
-
   async getData(address) {
-    const url = ENDPOINT + address;
-    const response = await fetch(url);
-    if (!response.ok) {
-      alert(`Ошибка доступа, HTTP status ${response.status}`);
-      return null;
-    }
-    return response.json();
+    const response = await axios.get(ENDPOINT + address).catch(error => {
+      console.log(error);
+    });
+    return response.data;
   }
 
   //Получить справочник валют
   async getVacancies(perPage, numberPage) {
-    return await this.getData(
-      `/vacancies?&per_page=${perPage}&page=${numberPage}`
-    );
+    return this.getData(`/vacancies?&per_page=${perPage}&page=${numberPage}`);
   }
 
   //Получить справочник валют
   async getCurrency() {
-    return await this.getData("/dictionaries");
+    const data = await this.getData("/dictionaries");
+    return data.currency;
   }
 
-  //Получить справочников регионов, стран...
+  //Получить справочников регионов, стран..
   async getArea() {
-    return await this.getData("/areas");
+    return this.getData("/areas");
   }
 }
 
