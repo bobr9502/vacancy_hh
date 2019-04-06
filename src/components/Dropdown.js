@@ -3,7 +3,7 @@ import React from "react";
 import { Dropdown } from "semantic-ui-react";
 import PropTypes from "prop-types";
 
-const defaultPropsDropDown = [{ key: -1, text: "Все", value: "-1" }];
+const defaultPropsDropDown = [{ key: -1, text: "Все", value: "" }];
 
 function DropdownExampleSearchSelectionTwo({itemsArea, value, onChange}) {
   let stateOptions = _.map(itemsArea, item => ({
