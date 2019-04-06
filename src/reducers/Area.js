@@ -1,16 +1,14 @@
+import { typeActions } from "../actions/TypeActions";
+
 const initialState = [];
 
-export default function area(state=initialState, action){
-  if (action.type === 'ADD_LIST_AREA') {
-    return [
-      ...state,
-      ...action.items
-    ];
+export default function area(state = initialState, action) {
+  if (action.type === typeActions.ADD_LIST_AREA) {
+    return [...state, ...action.items];
   }
   return state;
 }
 
-export function getArea(state)
-{
-	return state.area;
+export function getArea(state) {
+  return state.area;
 }

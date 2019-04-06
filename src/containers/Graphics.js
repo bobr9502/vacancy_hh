@@ -7,6 +7,7 @@ import Filter from "./Filter";
 import * as DataActions from "../actions/DataAction";
 import * as VacancySelectors from "../reducers/Vacancy";
 import Loader from "../components/Loader";
+import {typeActions} from "../actions/TypeActions";
 
 class Graphics extends Component {
   state = {loading: true};
@@ -64,7 +65,7 @@ export default connect(
       dispatch(DataActions.fetch(0));
     },
     onFilterVacancyCountry: (event, data) => {
-      dispatch({type: "VACANCY_FILTER_COUNTRY", payload: data.value});
+      dispatch({type: typeActions.VACANCY_FILTER_COUNTRY, payload: data.value});
     }
   })
 )(Graphics);

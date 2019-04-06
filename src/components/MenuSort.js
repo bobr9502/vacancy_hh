@@ -1,38 +1,39 @@
-import React, {Component} from "react";
-import {Menu} from "semantic-ui-react";
+import React, { Component } from "react";
+import { Menu } from "semantic-ui-react";
 import "../css/menuSort.css";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
+import { typeActions } from "../actions/TypeActions";
 
 class MenuExampleVerticalText extends Component {
-    state = {activeItem: this.props.currentItem, loading: true};
+  state = { activeItem: this.props.currentItem, loading: true };
   handleItemClick = (e, { name }) => {
     this.props.onSortVacancy(name);
-      this.setState({activeItem: name});
+    this.setState({ activeItem: name });
   };
 
-    componentDidMount() {
-        this.setState({loading: false});
+  componentDidMount() {
+    this.setState({ loading: false });
   }
 
   render() {
-      const {activeItem} = this.state;
+    const { activeItem } = this.state;
     return (
       <Menu text vertical>
         <Menu.Item header>Сортировать</Menu.Item>
-          <Menu.Item
-              name="Название"
-              active={activeItem === "Название"}
+        <Menu.Item
+          name="Название"
+          active={activeItem === "Название"}
           onClick={this.handleItemClick}
         />
         <Menu.Item
-            name="Зарплата от"
-            active={activeItem === "Зарплата от"}
-            onClick={this.handleItemClick}
+          name="Зарплата от"
+          active={activeItem === "Зарплата от"}
+          onClick={this.handleItemClick}
         />
         <Menu.Item
-            name="Зарплата до"
-            active={activeItem === "Зарплата до"}
-            onClick={this.handleItemClick}
+          name="Зарплата до"
+          active={activeItem === "Зарплата до"}
+          onClick={this.handleItemClick}
         />
       </Menu>
     );
@@ -40,12 +41,12 @@ class MenuExampleVerticalText extends Component {
 }
 
 export default connect(
-    state => ({
-        currentItem: state.sortVacancy
+  state => ({
+    currentItem: state.sortVacancy
   }),
   dispatch => ({
-      onSortVacancy: activeItem => {
-          dispatch({type: "VACANCY_SORT", payload: activeItem});
+    onSortVacancy: activeItem => {
+      dispatch({ type: typeActions.VACANCY_SORT, payload: activeItem });
     }
   })
 )(MenuExampleVerticalText);

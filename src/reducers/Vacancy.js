@@ -1,11 +1,12 @@
 import * as SelectorsSort from "./SortVacancy";
 import * as SelectorsFilter from "./FilterVacancyCountry";
+import {typeActions} from "../actions/TypeActions";
 import _ from "lodash";
 
 const initialState = [];
 
 export default function vacancy(state = initialState, action) {
-  if (action.type === "ADD_LIST_VACANCY") {
+  if (action.type === typeActions.ADD_LIST_VACANCY) {
     return [...state, ...action.items];
   }
   return state;
