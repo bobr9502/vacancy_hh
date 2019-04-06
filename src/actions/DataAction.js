@@ -10,17 +10,13 @@ export function fetch(numberPage) {
     try {
       const listCurrencyPromise = Services.getCurrency();
       const listAreaPromise = Services.getArea();
+      const listVacanciesPromise = Services.getVacancies(50, numberPage);
       const listCurrency = Currency.extract(await listCurrencyPromise);
       const listArea = Area.extract(await listAreaPromise);
-
-      const listVacancy = Vacancy.extract(
-        await Services.getVacancies(50, numberPage),
-        listCurrency,
-        listArea
-      );
-      const onlyAreaByVacancy = Area.getArea(listVacancy);
+      const listVacancies = Vacancy.extract(await listVacanciesPromise, listCurrency, listArea)
+      const onlyAreaByVacancy = Area.getArea(listVacancies);
       dispatch({ type: typeActions.ADD_LIST_CURRENCY, items: listCurrency });
-      dispatch({ type: typeActions.ADD_LIST_VACANCY, items: listVacancy });
+      dispatch({ type: typeActions.ADD_LIST_VACANCY, items: listVacancies });
       dispatch({ type: typeActions.ADD_LIST_AREA, items: onlyAreaByVacancy });
     } catch (error) {
       console.error(error);
