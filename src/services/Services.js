@@ -2,26 +2,27 @@ import axios from "axios";
 const ENDPOINT = "https://api.hh.ru";
 
 class Api {
-  async getData(address) {
-    const response = await axios.get(ENDPOINT + address).catch(error => {
-      console.log(error);
+
+  getData(address) {
+    const response = axios.get(ENDPOINT + address).catch(error => {
+      console.error(error);
     });
-    return response.data;
+    return response;
   }
 
   //Получить справочник валют
-  async getVacancies(perPage, numberPage) {
+  getVacancies(perPage, numberPage) {
     return this.getData(`/vacancies?&per_page=${perPage}&page=${numberPage}`);
   }
 
   //Получить справочник валют
-  async getCurrency() {
-    const data = await this.getData("/dictionaries");
-    return data.currency;
+  getCurrency() {
+    const data = this.getData("/dictionaries");
+    return data;
   }
 
   //Получить справочников регионов, стран..
-  async getArea() {
+  getArea() {
     return this.getData("/areas");
   }
 }

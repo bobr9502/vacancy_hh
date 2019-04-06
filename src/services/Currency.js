@@ -1,15 +1,10 @@
-import Api from './Services';
 import _ from 'lodash';
 
 class Currency
 {
-	async get()
+	extract(responseDictionary)
 	{
-		let listCurrency = await Api.getCurrency();
-		if (_.get(listCurrency,'currency'))
-		{
-			listCurrency = listCurrency.currency;
-		}
+		const listCurrency = responseDictionary.data.currency;
 		const result = listCurrency.map(function(item) {
 			return {
 				code: _.get(item, 'code'),

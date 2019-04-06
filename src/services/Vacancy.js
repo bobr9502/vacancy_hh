@@ -1,54 +1,49 @@
 import _ from "lodash";
-import Api from "./Services";
-//import Currency from './currency'
-//import Area from './area'
 
 class Vacancy {
-  async get(numberPage, listCurrency, listArea) {
-    const data = await Api.getVacancies(50, numberPage);
-    const result = await Promise.all(
-      data.items.map(async function(item) {
-        const main_parent = identifyMainParentByRegionId(
-          _.get(item, "area.id"),
-          listArea
-        ); //ищем страну
-        const rurConvert = convertToRUR(item, listCurrency);
-        //console.log(main_parent);
-        return {
-          id: _.get(item, "id"),
-          address: {
-            city: _.get(item, "address.city"),
-            street: _.get(item, "address.street"),
-            building: _.get(item, "address.building")
-          },
-          area: {
-            id: _.get(item, "Area.js.id"),
-            name: _.get(item, "Area.js.name"),
-            main_parent: {
-              id: _.get(main_parent, "id"),
-              name: _.get(main_parent, "name")
-            }
-          },
-          contacts: {
-            email: _.get(item, "contacts.email"),
-            name: _.get(item, "contact.name")
-          },
-          requirement: _.get(item, "snippet.requirement"),
-          responsibility: _.get(item, "snippet.responsibility"),
-          employer: {
-            name: _.get(item, "employer.name")
-          },
-          name: _.get(item, "name"),
-          salary: {
-            currency: _.get(item, "salary.currency"),
-            from: _.get(item, "salary.from"),
-            to: _.get(item, "salary.to"),
-            from_rur: _.get(rurConvert, "from_rur"),
-            to_rur: _.get(rurConvert, "to_rur")
+  extract(responseVacancies, listCurrency, listArea) {
+    const listVacancies = responseVacancies.data.items;
+    const result = listVacancies.map(function(item) {
+      const main_parent = identifyMainParentByRegionId(
+        _.get(item, "area.id"),
+        listArea
+      ); //ищем страну
+      const rurConvert = convertToRUR(item, listCurrency);
+      //console.log(main_parent);
+      return {
+        id: _.get(item, "id"),
+        address: {
+          city: _.get(item, "address.city"),
+          street: _.get(item, "address.street"),
+          building: _.get(item, "address.building")
+        },
+        area: {
+          id: _.get(item, "Area.js.id"),
+          name: _.get(item, "Area.js.name"),
+          main_parent: {
+            id: _.get(main_parent, "id"),
+            name: _.get(main_parent, "name")
           }
-        };
-      })
-    );
+        },
+        contacts: {
+          email: _.get(item, "contacts.email"),
+          name: _.get(item, "contact.name")
+        },
+        requirement: _.get(item, "snippet.requirement"),
+        responsibility: _.get(item, "snippet.responsibility"),
+        employer: {
+          name: _.get(item, "employer.name")
+        },
+        name: _.get(item, "name"),
+        salary: {
+          currency: _.get(item, "salary.currency"),
+          from: _.get(item, "salary.from"),
+          to: _.get(item, "salary.to"),
+          from_rur: _.get(rurConvert, "from_rur"),
+          to_rur: _.get(rurConvert, "to_rur")
+        }
+      };
+    });
 
     return result;
   }
@@ -148,4 +143,4 @@ function identifyMainParentByRegionId(id, listArea) {
 
 //function onlyUnique(value, index, self) {
 //	return self.indexOf(value) === index;
-//}
+//}s

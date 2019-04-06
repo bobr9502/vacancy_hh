@@ -1,8 +1,7 @@
-import Api from "./Services";
 
 class Area {
-  getApi() {
-    return Api.getArea();
+  extract(response) {
+    return response.data;
   }
 
   getArea(vacancy) {
