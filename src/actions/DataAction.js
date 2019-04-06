@@ -10,9 +10,9 @@ export function fetch(numberPage) {
       const listArea = await Area.getApi();
       const listVacancy = await Vacancy.get(numberPage, listCurrency, listArea);
       const onlyAreaByVacancy = await Area.getArea(listVacancy);
-      dispatch({ type: TypeActions.ADD_LIST_CURRENCY, items: listCurrency });
-      dispatch({ type: TypeActions.ADD_LIST_VACANCY, items: listVacancy });
-      dispatch({ type: TypeActions.ADD_LIST_AREA, items: onlyAreaByVacancy });
+      dispatch({ type: typeActions.ADD_LIST_CURRENCY, items: listCurrency });
+      dispatch({ type: typeActions.ADD_LIST_VACANCY, items: listVacancy });
+      dispatch({ type: typeActions.ADD_LIST_AREA, items: onlyAreaByVacancy });
     } catch (error) {
       console.error(error);
     }

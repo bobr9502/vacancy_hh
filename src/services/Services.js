@@ -1,6 +1,7 @@
 const ENDPOINT = "https://api.hh.ru";
 
 class Api {
+
   async getData(address) {
     const url = ENDPOINT + address;
     const response = await fetch(url);
