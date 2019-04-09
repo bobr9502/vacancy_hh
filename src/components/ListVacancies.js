@@ -10,6 +10,7 @@ class ListVacancies extends Component {
           return (
             <VacancyPreview key={id}
               data={{
+                id: id,
                 name: name,
                 employerName: employer.name,
                 areaName: area.Name,
