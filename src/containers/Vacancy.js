@@ -17,7 +17,7 @@ const VacancyItem = ({ vacancy, currency }) => (
 			<div className="vacancy__emloyer__name">
 				{(vacancy.employer) ? Helpers.generateVacancyItem(vacancy.employer.name) : ""}
 			</div>
-			{Helpers.generateSalary(vacancy, currency)}
+			{Helpers.generateSalary(vacancy.salary, currency)}
 			<div className="vacancy__address">
 				{(vacancy.address) ? Helpers.generateVacancyItem(vacancy.address.city, "address__city") : ""}
 				{(vacancy.address) ? Helpers.generateVacancyItem(vacancy.address.street, "address__street") : ""}
