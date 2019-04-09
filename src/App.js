@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import ListVacancy from "./components/ListVacancy";
+import Index from "./components/vacancy";
 import { Container } from "react-grid-system";
 import Menu from "./components/Menu";
 import MenuSort from "./components/MenuSort";
@@ -32,7 +32,7 @@ class App extends Component {
           <Filter itemsArea={areas} />
         </nav>
         <main>
-          <ListVacancy itemsVacancy={vacancy} itemsCurrency={listCurrency} />
+          <Index itemsVacancy={vacancy} itemsCurrency={listCurrency} />
         </main>
       </Container>
     );
