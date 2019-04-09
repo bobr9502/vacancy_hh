@@ -12,35 +12,35 @@ const helpers = {
 			return vacancyElement==null ? (""):(<div className={className}>{vacancyElement}</div>)
 	},
 	//генерация строки с зарплатой
-	generateSalary (item, currency) {
+	generateSalary (salaryVacancy, currency) {
 		//console.log(item);
-		const abbr = selectorsCurrency.getAbbr(item, currency);
-		if (_.get(item,'salary.from') && _.get(item,'salary.to'))
-			if (item.salary.from === item.salary.to)
-				if (item.salary.currency!=='RUR')
-					return (<span className="employer__salary">{item.salary.from} {abbr}
-						<span className="employer__salary__rur">{item.salary.from_rur} руб.</span></span>)
+		const abbr = selectorsCurrency.getAbbr(salaryVacancy, currency);
+		if (_.get(salaryVacancy,'from') && _.get(salaryVacancy,'to'))
+			if (salaryVacancy.from === salaryVacancy.to)
+				if (salaryVacancy.currency!=='RUR')
+					return (<span className="employer__salary">{salaryVacancy.from} {abbr}
+						<span className="employer__salary__rur">{salaryVacancy.from_rur} руб.</span></span>)
 				else
-					return (<span className="employer__salary">{item.salary.from} {abbr}</span>)
+					return (<span className="employer__salary">{salaryVacancy.from} {abbr}</span>)
 				else
-					if (item.salary.currency!=='RUR') 
-						return (<span className="employer__salary">от {item.salary.from} до {item.salary.to} {abbr}
-							<span className="employer__salary__rur">от {item.salary.from_rur} до {item.salary.to_rur} руб.</span></span> )
+					if (salaryVacancy.currency!=='RUR')
+						return (<span className="employer__salary">от {salaryVacancy.from} до {salaryVacancy.to} {abbr}
+							<span className="employer__salary__rur">от {salaryVacancy.from_rur} до {salaryVacancy.to_rur} руб.</span></span> )
 					else
-						return (<span className="employer__salary">от {item.salary.from} до {item.salary.to} {abbr}</span> )
-					else if (_.get(item,'salary.from'))
-						if (item.salary.currency!=='RUR')
-							return (<span className="employer__salary">от {item.salary.from} {abbr}
-								<span className="employer__salary__rur">от {item.salary.from_rur} руб.</span></span>)
+						return (<span className="employer__salary">от {salaryVacancy.from} до {salaryVacancy.to} {abbr}</span> )
+					else if (_.get(salaryVacancy,'from'))
+						if (salaryVacancy.currency!=='RUR')
+							return (<span className="employer__salary">от {salaryVacancy.from} {abbr}
+								<span className="employer__salary__rur">от {salaryVacancy.from_rur} руб.</span></span>)
 						else
-							return (<span className="employer__salary">от {item.salary.from} {abbr}</span>)
-						else if (_.get(item,'salary.to'))
+							return (<span className="employer__salary">от {salaryVacancy.from} {abbr}</span>)
+						else if (_.get(salaryVacancy,'to'))
 						{
-							if (item.salary.currency!=='RUR')
-								return (<span className="employer__salary">до {item.salary.to} {abbr}
-									<span className="employer__salary__rur">до {item.salary.to_rur} руб.</span></span>)
+							if (salaryVacancy.currency!=='RUR')
+								return (<span className="employer__salary">до {salaryVacancy.to} {abbr}
+									<span className="employer__salary__rur">до {salaryVacancy.to_rur} руб.</span></span>)
 							else
-								return (<span className="employer__salary">до {item.salary.to} {abbr}</span>)
+								return (<span className="employer__salary">до {salaryVacancy.to} {abbr}</span>)
 						}
 					}
 				}

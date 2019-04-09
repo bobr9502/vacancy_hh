@@ -14,8 +14,8 @@ export function getCurrency(state) {
   return state.currency;
 }
 
-export function getAbbr(itemCurrency, listCurrency) {
-  const currency = _.get(itemCurrency, "salary.currency");
+export function getAbbr(salaryVacancy, listCurrency) {
+  const currency = _.get(salaryVacancy, "currency");
   if (currency) {
     const abbrItemCurrency = listCurrency.find(function(item) {
       return item.code === currency;
