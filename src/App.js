@@ -15,9 +15,9 @@ class App extends Component {
   state = { loading: true };
 
   componentDidMount() {
-    this.setState({ loading: false });
     if (!this.props.vacancy || !this.props.vacancy.length)
       this.props.onGetData(0);
+    setInterval(()=>this.setState({ loading: false }), 10000);
   }
 
   render() {
