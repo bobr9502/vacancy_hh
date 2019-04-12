@@ -13,10 +13,18 @@ import * as DataActions from "./actions/DataAction";
 class App extends Component {
   state = { loading: true };
 
-  componentDidMount() {
-    this.setState({ loading: false })
+  componentWillMount() {
     if (!this.props.vacancy || !this.props.vacancy.length)
       this.props.onGetData(0);
+  }
+
+  componentDidMount() {
+
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.vacancy.length)
+      this.setState({loading: false})
   }
 
   render() {
