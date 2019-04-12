@@ -37,13 +37,13 @@ class Graphics extends Component {
   render() {
     const barData = VacancySelectors.countAndSalaryVacancy(this.props.vacancy);
     const { loading } = this.state;
-    const { area, onFilterVacancyCountry } = this.props;
+    const { area } = this.props;
     if (loading) return <Loader />;
     return (
       <Container fluid className="container">
         <nav>
           <Menu active={"Графики"} />
-          <Filter itemsArea={area} onChange={onFilterVacancyCountry} />
+          <Filter itemsArea={area}/>
         </nav>
         <main>
           <Bar data={barData} options={options} />
