@@ -32,7 +32,7 @@ class App extends Component {
           <Filter itemsArea={areas} />
         </nav>
         <main>
-          <ListVacancies itemsVacancy={vacancy} listCurrency={listCurrency} />
+          <ListVacancies itemsVacancy={vacancy} />
         </main>
       </Container>
     );
