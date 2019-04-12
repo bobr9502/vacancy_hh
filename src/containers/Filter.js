@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Dropdown from "../components/Dropdown";
 import "../css/filter.css";
-import Loader from "../components/Loader";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
