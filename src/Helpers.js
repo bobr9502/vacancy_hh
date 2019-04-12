@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import _ from 'lodash'
 import * as selectorsCurrency from './reducers/Currency'
 
@@ -7,7 +7,7 @@ const helpers = {
 	generateVacancyItem(vacancyElement, className=null) {
 
 		if (className==null)
-			return vacancyElement==null ? (""):(<div>{vacancyElement}</div>)
+			return vacancyElement==null ? (""):(<Fragment>{vacancyElement}</Fragment>)
 		else
 			return vacancyElement==null ? (""):(<div className={className}>{vacancyElement}</div>)
 	},
