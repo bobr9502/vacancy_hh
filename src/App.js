@@ -8,7 +8,6 @@ import Filter from "./containers/Filter";
 import Loader from "./components/Loader";
 import * as VacancySelectors from "./reducers/Vacancy";
 import * as AreaSelectors from "./reducers/Area";
-import * as CurrencySelectors from "./reducers/Currency";
 import * as DataActions from "./actions/DataAction";
 
 class App extends Component {
@@ -22,7 +21,7 @@ class App extends Component {
 
   render() {
     const { loading } = this.state;
-    const { areas, vacancy, listCurrency } = this.props;
+    const { areas, vacancy } = this.props;
     if (loading) return <Loader />;
     return (
       <Container fluid className="container">
@@ -42,8 +41,7 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     vacancy: VacancySelectors.getVacancy(state),
-    areas: AreaSelectors.getArea(state),
-    listCurrency: CurrencySelectors.getCurrency(state)
+    areas: AreaSelectors.getArea(state)
   };
 }
 
