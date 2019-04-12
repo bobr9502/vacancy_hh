@@ -26,7 +26,7 @@ class ListVacancies extends Component {
   render() {
     return (
       <div className="list__vacancy">
-        <ul>{this.showList()}</ul>
+        {this.showList()}
       </div>
     );
   }
