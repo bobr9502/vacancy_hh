@@ -6,16 +6,11 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 class Filter extends Component {
-  state = { loading: true };
-
   componentDidMount() {
     this.setState({ loading: false });
   }
   render() {
-    const { loading } = this.state;
     const { currentItem, itemsArea, onFilterVacancyCountry } = this.props;
-
-    if (loading) return <Loader type="block" />;
     return (
       <div className="filter">
         <div className="header item">Фильтр</div>
