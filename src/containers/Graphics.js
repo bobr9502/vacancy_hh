@@ -7,7 +7,7 @@ import Filter from "./Filter";
 import * as DataActions from "../actions/DataAction";
 import * as VacancySelectors from "../reducers/Vacancy";
 import Loader from "../components/Loader";
-import { typeActions } from "../actions/TypeActions";
+import { typeActions } from "../actions/typeActions";
 
 const options = {
   title: {

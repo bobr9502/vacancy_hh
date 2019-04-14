@@ -2,28 +2,7 @@ import Vacancy from "../services/Vacancy";
 import Area from "../services/Area";
 import Currency from "../services/Currency";
 import Services from "../services/Services";
-import { typeActions } from "./TypeActions";
-
-const addListCurrency = listCurrency => {
-  return {
-    type: typeActions.ADD_LIST_CURRENCY,
-    payload: listCurrency
-  };
-};
-
-const addListVacancies = listVacancies => {
-  return {
-    type: typeActions.ADD_LIST_VACANCY,
-    payload: listVacancies
-  };
-};
-
-const addListArea = listArea => {
-  return {
-    type: typeActions.ADD_LIST_AREA,
-    payload: listArea
-  };
-};
+import { addListCurrency, addListVacancies, addListArea } from "./";
 
 export function fetch(numberPage) {
   return async dispatch => {

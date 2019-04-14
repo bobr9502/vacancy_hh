@@ -1,4 +1,4 @@
-import { typeActions } from "../actions/TypeActions";
+import { typeActions } from "../actions/typeActions";
 
 const initialState = "Название";
 

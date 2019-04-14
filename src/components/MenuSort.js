@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Menu } from "semantic-ui-react";
 import "../css/menuSort.css";
 import { connect } from "react-redux";
-import { typeActions } from "../actions/TypeActions";
+import { typeActions } from "../actions/typeActions";
 
 class MenuExampleVerticalText extends Component {
   state = { activeItem: this.props.currentItem, loading: true };
