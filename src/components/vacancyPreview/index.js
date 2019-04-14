@@ -19,7 +19,7 @@ class Index extends Component {
     return (
       <li>
         <div className="vacancy__name">
-          <Link to={`/vacancy/${id}`}>{name}</Link>
+          <Link to={`/vacancy/${id}`} onlyActiveOnIndex>{name}</Link>
         </div>
         <div className="vacancy__employer">
           {Helpers.generateVacancyItem(employerName, "employer__name")}
@@ -31,7 +31,6 @@ class Index extends Component {
   }
 
   render() {
-    console.log("v");
     return this.showPreview();
   }
 }
@@ -50,6 +49,6 @@ const mapStateToProps = (state) =>
   return {
     listCurrency: CurrencySelectors.getCurrency(state)
   }
-}
+};
 
 export default connect(mapStateToProps)(Index);
