@@ -8,10 +8,14 @@ import * as CurrencySelectors from "../../reducers/Currency";
 
 
 class Index extends Component {
+
+  shouldComponentUpdate(nextProps) {
+    return (nextProps.data.id !== this.props.data.id);
+  }
+
   showPreview() {
     const { id, name, employerName, areaName, salary } = this.props.data;
     const { listCurrency } = this.props;
-
     return (
       <li>
         <div className="vacancy__name">
@@ -27,6 +31,7 @@ class Index extends Component {
   }
 
   render() {
+    console.log("v");
     return this.showPreview();
   }
 }
