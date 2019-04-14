@@ -1,4 +1,4 @@
-import { typeActions } from "./typeActions";
+import { typeActions } from "../constans/typeActions";
 
 export const addListCurrency = listCurrency => {
   return {

@@ -1,4 +1,4 @@
-import { typeActions } from "../actions/typeActions";
+import { typeActions } from "../constans/typeActions";
 import _ from "lodash";
 
 const initialState = [];
