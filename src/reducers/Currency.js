@@ -5,7 +5,7 @@ const initialState = [];
 
 export default function currency(state = initialState, action) {
   if (action.type === typeActions.ADD_LIST_CURRENCY) {
-    return [...state, ...action.items];
+    return [...state, ...action.payload];
   }
   return state;
 }

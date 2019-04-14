@@ -18,13 +18,10 @@ class App extends Component {
       this.props.onGetData(0);
   }
 
-  componentDidMount() {
-
-  }
+  componentDidMount() {}
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.vacancy.length)
-      this.setState({loading: false})
+    if (nextProps.vacancy.length) this.setState({ loading: false });
   }
 
   render() {

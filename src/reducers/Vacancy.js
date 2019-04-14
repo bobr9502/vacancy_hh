@@ -7,7 +7,7 @@ const initialState = [];
 
 export default function vacancy(state = initialState, action) {
   if (action.type === typeActions.ADD_LIST_VACANCY) {
-    return [...state, ...action.items];
+    return [...state, ...action.payload];
   }
   return state;
 }
